@@ -45,12 +45,33 @@ function showAncients() {
     stage3[0].textContent = ancientsData[0]["thirdStage"].greenCards;
     stage3[1].textContent = ancientsData[0]["thirdStage"].blueCards;
     stage3[2].textContent = ancientsData[0]["thirdStage"].brownCards;
+
+    let tempBlue = randomShoose(blueCardCount, blueCards);
+    let tempGreen = randomShoose(greenCardCount, greenCards);
+    let tempBrown = randomShoose(brownCardCount, brownCards);
+    console.log(tempBlue, tempGreen, tempBrown);
 }
 
-function randomShoose(num) {
+function randomShoose(num, color) {
     let randomCards = [];
-    for (num; num == 0; num--) {}
-    Math.floor(Math.random() * (20 - 1 + 1) + 1);
+    let tempIndexList = [];
+    while (tempIndexList.length < num) {
+        let tempIndex = Math.floor(Math.random() * (color.length - 1) + 1);
+        // let temtempIndexList = {};
+        if (tempIndexList.indexOf(tempIndex) === -1) {
+            tempIndexList.push(tempIndex);
+            randomCards.push(color[tempIndex]);
+        }
+
+        // let card = color.splice(tempIndex, -1);
+        // console.log(card, randomCards);
+        // if (card != -1) {
+        //     randomCards.push(card);
+        // console.log(tempIndexList, "list");
+    }
+
+    console.log(tempIndexList, "list", color.length);
+    return randomCards;
 }
 
 difficultyBtns.forEach((btn) => {

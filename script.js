@@ -1,5 +1,7 @@
 import ancientsData from "./data/ancients.js";
+import cardsData from "./data/mythicCards/blue/index.js";
 
+console.log(cardsData);
 const chooseAncients = document.querySelector(".choose-ancients"),
     difficultyBtns = document.querySelectorAll(".difficulty-selection-btns"),
     stages = document.querySelector(".stages"),
@@ -41,6 +43,12 @@ function showAncients() {
     stage3[0].textContent = ancientsData[0]["thirdStage"].greenCards;
     stage3[1].textContent = ancientsData[0]["thirdStage"].blueCards;
     stage3[2].textContent = ancientsData[0]["thirdStage"].brownCards;
+}
+
+function randomShoose(num) {
+    let randomCards = [];
+    for (num; num == 0; num--) {}
+    Math.floor(Math.random() * (20 - 1 + 1) + 1);
 }
 
 difficultyBtns.forEach((btn) => {

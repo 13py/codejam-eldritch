@@ -1,7 +1,9 @@
 import ancientsData from "./data/ancients.js";
-import cardsData from "./data/mythicCards/blue/index.js";
+import brownCards from "./data/mythicCards/brown/index.js";
+import blueCards from "./data/mythicCards/blue/index.js";
+import greenCards from "./data/mythicCards/green/index.js";
 
-console.log(cardsData);
+console.log(brownCards);
 const chooseAncients = document.querySelector(".choose-ancients"),
     difficultyBtns = document.querySelectorAll(".difficulty-selection-btns"),
     stages = document.querySelector(".stages"),

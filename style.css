@@ -1,0 +1,20 @@
+.stage-1,
+.stage-2,
+.stage-3 {
+    display: flex;
+    gap: 10px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.stage__item_green {
+    color: green;
+}
+
+.stage__item_blue {
+    color: blue;
+}
+
+.stage__item_red {
+    color: red;
+}

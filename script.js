@@ -17,7 +17,8 @@ function showAncients() {
 difficultyBtns.forEach((btn) => {
     console.log(btn);
     btn.addEventListener("click", (e) => {
-        console.log(e.target.textContent);
+        console.log(e.target.textContent, e.classList);
+        e.target.classList.add("level-btn_active");
     });
 });
 

@@ -1,7 +1,8 @@
 import ancientsData from "./data/ancients.js";
 
 const chooseAncients = document.querySelector(".choose-ancients"),
-    difficultyBtns = document.querySelectorAll(".difficulty-selection-btns");
+    difficultyBtns = document.querySelectorAll(".difficulty-selection-btns"),
+    stages = document.querySelector(".stages");
 
 function showAncients() {
     console.log(ancientsData[0]);

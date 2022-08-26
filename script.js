@@ -14,6 +14,24 @@ function showAncients() {
     img.src = ancientsData[0].cardFace;
     img.addEventListener("click", () => {});
     console.log(stage1);
+
+    const curentAncient = ancientsData[0];
+
+    // кол-во карт по цветам на каждом уровне
+    let greenCardCount =
+        curentAncient["firstStage"].greenCards +
+        curentAncient["secondStage"].greenCards +
+        curentAncient["thirdStage"].greenCards;
+    let brownCardCount =
+        curentAncient["firstStage"].brownCards +
+        curentAncient["secondStage"].brownCards +
+        curentAncient["thirdStage"].brownCards;
+    let blueCardCount =
+        curentAncient["firstStage"].blueCards +
+        curentAncient["secondStage"].blueCards +
+        curentAncient["thirdStage"].blueCards;
+    console.log(greenCardCount, brownCardCount, blueCardCount);
+    // отображаем кол - во карт по цветам
     stage1[0].textContent = ancientsData[0]["firstStage"].greenCards;
     stage1[1].textContent = ancientsData[0]["firstStage"].blueCards;
     stage1[2].textContent = ancientsData[0]["firstStage"].brownCards;

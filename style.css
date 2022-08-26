@@ -23,6 +23,6 @@
     color: blue;
 }
 
-.stage__item_red {
-    color: red;
+.stage__item_brown {
+    color: rgba(204, 22, 22, 0.938);
 }

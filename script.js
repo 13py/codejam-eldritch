@@ -50,6 +50,28 @@ function showAncients() {
     let tempGreen = randomShoose(greenCardCount, greenCards);
     let tempBrown = randomShoose(brownCardCount, brownCards);
     console.log(tempBlue, tempGreen, tempBrown);
+
+    // рандомные карты всех цветов для одного этапа
+    let stageOneAllColorCard = [
+        ...randomShoose(ancientsData[0]["firstStage"].blueCards, tempBlue),
+        ...randomShoose(ancientsData[0]["firstStage"].greenCards, tempGreen),
+        ...randomShoose(ancientsData[0]["firstStage"].brownCards, tempBrown),
+    ];
+    let stageTwoAllColorCard = [
+        ...randomShoose(ancientsData[0]["secondStage"].blueCards, tempBlue),
+        ...randomShoose(ancientsData[0]["secondStage"].greenCards, tempGreen),
+        ...randomShoose(ancientsData[0]["secondStage"].brownCards, tempBrown),
+    ];
+    let stageThirdAllColorCard = [
+        ...randomShoose(ancientsData[0]["thirdStage"].blueCards, tempBlue),
+        ...randomShoose(ancientsData[0]["thirdStage"].greenCards, tempGreen),
+        ...randomShoose(ancientsData[0]["thirdStage"].brownCards, tempBrown),
+    ];
+    console.log(
+        stageOneAllColorCard,
+        stageTwoAllColorCard,
+        stageThirdAllColorCard
+    );
 }
 
 function randomShoose(num, color) {

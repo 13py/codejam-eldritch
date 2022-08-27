@@ -36,3 +36,7 @@
 /* .background-card {
     background-image: ;
 } */
+
+.cards {
+    display: flex;
+}

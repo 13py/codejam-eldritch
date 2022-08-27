@@ -128,11 +128,37 @@ let curentCard = document.querySelector(".card");
 function showCards() {
     // let img = document.createElement("img");
     // openCard.appendChild(img);
-    console.log(stageOneAllColorCard, "carrrrrrrrrr");
-    let card = stageOneAllColorCard.pop();
-    curentCard.src =
-        "./assets/MythicCards/" + `${card["color"]}` + "/" + `${card["id"]}.png`;
-    alert();
+    // console.log(stageOneAllColorCard, "carrrrrrrrrr");
+    if (stageOneAllColorCard.length != 0) {
+        alert(stageOneAllColorCard.length);
+        let card = stageOneAllColorCard.pop();
+        curentCard.src =
+            "./assets/MythicCards/" + `${card["color"]}` + "/" + `${card["id"]}.png`;
+    } else {
+        if (stageTwoAllColorCard.length != 0) {
+            alert(stageTwoAllColorCard.length);
+            let card = stageTwoAllColorCard.pop();
+            curentCard.src =
+                "./assets/MythicCards/" +
+                `${card["color"]}` +
+                "/" +
+                `${card["id"]}.png`;
+        } else {
+            if (stageThirdAllColorCard.length != 0) {
+                alert(stageThirdAllColorCard.length);
+                let card = stageThirdAllColorCard.pop();
+                curentCard.src =
+                    "./assets/MythicCards/" +
+                    `${card["color"]}` +
+                    "/" +
+                    `${card["id"]}.png`;
+            } else {
+                alert(all);
+            }
+        }
+    }
+
+    // alert();
 }
 backgroundCard.addEventListener("click", showCards);
 showAncients();

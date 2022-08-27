@@ -9,7 +9,13 @@ const chooseAncients = document.querySelector(".choose-ancients"),
     stages = document.querySelector(".stages"),
     stage1 = document.querySelector(".stage-1").querySelectorAll("div"),
     stage2 = document.querySelector(".stage-2").querySelectorAll("div"),
-    stage3 = document.querySelector(".stage-3").querySelectorAll("div");
+    stage3 = document.querySelector(".stage-3").querySelectorAll("div"),
+    backgroundCard = document.querySelector(".background-card"),
+    openCard = document.querySelector(".open-card");
+
+let stageOneAllColorCard;
+let stageTwoAllColorCard;
+let stageThirdAllColorCard;
 
 function showAncients() {
     console.log(ancientsData[0]);
@@ -52,17 +58,17 @@ function showAncients() {
     console.log(tempBlue, tempGreen, tempBrown);
 
     // рандомные карты всех цветов для одного этапа
-    let stageOneAllColorCard = shuffle([
+    stageOneAllColorCard = shuffle([
         ...randomShoose(ancientsData[0]["firstStage"].blueCards, tempBlue),
         ...randomShoose(ancientsData[0]["firstStage"].greenCards, tempGreen),
         ...randomShoose(ancientsData[0]["firstStage"].brownCards, tempBrown),
     ]);
-    let stageTwoAllColorCard = shuffle([
+    stageTwoAllColorCard = shuffle([
         ...randomShoose(ancientsData[0]["secondStage"].blueCards, tempBlue),
         ...randomShoose(ancientsData[0]["secondStage"].greenCards, tempGreen),
         ...randomShoose(ancientsData[0]["secondStage"].brownCards, tempBrown),
     ]);
-    let stageThirdAllColorCard = shuffle([
+    stageThirdAllColorCard = shuffle([
         ...randomShoose(ancientsData[0]["thirdStage"].blueCards, tempBlue),
         ...randomShoose(ancientsData[0]["thirdStage"].greenCards, tempGreen),
         ...randomShoose(ancientsData[0]["thirdStage"].brownCards, tempBrown),
@@ -117,12 +123,18 @@ difficultyBtns.forEach((btn) => {
     });
 });
 
-const backgroundCard = document.querySelector(".background-card");
+let curentCard = document.querySelector(".card");
 
-backgroundCard.addEventListener("click", () => {
+function showCards() {
+    // let img = document.createElement("img");
+    // openCard.appendChild(img);
+    console.log(stageOneAllColorCard, "carrrrrrrrrr");
+    let card = stageOneAllColorCard.pop();
+    curentCard.src =
+        "./assets/MythicCards/" + `${card["color"]}` + "/" + `${card["id"]}.png`;
     alert();
-});
-
+}
+backgroundCard.addEventListener("click", showCards);
 showAncients();
 
 // Math.floor(Math.random() * (20 - 1 + 1) + 1);

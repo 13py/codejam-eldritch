@@ -52,26 +52,39 @@ function showAncients() {
     console.log(tempBlue, tempGreen, tempBrown);
 
     // рандомные карты всех цветов для одного этапа
-    let stageOneAllColorCard = [
+    let stageOneAllColorCard = shuffle([
         ...randomShoose(ancientsData[0]["firstStage"].blueCards, tempBlue),
         ...randomShoose(ancientsData[0]["firstStage"].greenCards, tempGreen),
         ...randomShoose(ancientsData[0]["firstStage"].brownCards, tempBrown),
-    ];
-    let stageTwoAllColorCard = [
+    ]);
+    let stageTwoAllColorCard = shuffle([
         ...randomShoose(ancientsData[0]["secondStage"].blueCards, tempBlue),
         ...randomShoose(ancientsData[0]["secondStage"].greenCards, tempGreen),
         ...randomShoose(ancientsData[0]["secondStage"].brownCards, tempBrown),
-    ];
-    let stageThirdAllColorCard = [
+    ]);
+    let stageThirdAllColorCard = shuffle([
         ...randomShoose(ancientsData[0]["thirdStage"].blueCards, tempBlue),
         ...randomShoose(ancientsData[0]["thirdStage"].greenCards, tempGreen),
         ...randomShoose(ancientsData[0]["thirdStage"].brownCards, tempBrown),
-    ];
-    console.log(
-        stageOneAllColorCard,
-        stageTwoAllColorCard,
-        stageThirdAllColorCard
-    );
+    ]);
+    console.log(stageTwoAllColorCard, "BEFORE");
+    // console.log(shuffle(stageTwoAllColorCard), "BEFORE!!!");
+}
+
+function shuffle(list) {
+    // console.log(list, "do");
+    for (let i = list.length - 1; i >= 0; i--) {
+        let tempNum = list[i];
+        // console.log(tempNum, "!!!!!", list.length - 1, i);
+        let randomIndex = Math.floor(Math.random() * (i + 1));
+        // alert(randomIndex);
+        list[i] = list[randomIndex];
+        list[randomIndex] = tempNum;
+        // console.log(list, "v processe");
+    }
+    console.log(list, "posle");
+    // list[0] = 10;
+    return list;
 }
 
 function randomShoose(num, color) {

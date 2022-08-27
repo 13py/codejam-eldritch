@@ -1,3 +1,8 @@
+.container {
+    display: flex;
+    gap: 20px;
+}
+
 .level-btn {
     padding: 10px 20px;
 }
@@ -26,3 +31,8 @@
 .stage__item_brown {
     color: rgba(204, 22, 22, 0.938);
 }
+
+
+/* .background-card {
+    background-image: ;
+} */

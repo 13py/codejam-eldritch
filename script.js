@@ -117,6 +117,12 @@ difficultyBtns.forEach((btn) => {
     });
 });
 
+const backgroundCard = document.querySelector(".background-card");
+
+backgroundCard.addEventListener("click", () => {
+    alert();
+});
+
 showAncients();
 
 // Math.floor(Math.random() * (20 - 1 + 1) + 1);

@@ -150,7 +150,6 @@ function showCards() {
                 `${card["id"]}.png`;
         } else {
             if (stageThirdAllColorCard.length != 0) {
-                alert(stageThirdAllColorCard.length);
                 let card = stageThirdAllColorCard.pop();
                 setCountColorCard(card, stage3);
                 curentCard.src =
@@ -159,7 +158,7 @@ function showCards() {
                     "/" +
                     `${card["id"]}.png`;
             } else {
-                alert(all);
+                alert("Карты в колоде закончились!");
             }
         }
     }

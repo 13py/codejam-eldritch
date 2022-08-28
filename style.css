@@ -40,3 +40,20 @@
 .cards {
     display: flex;
 }
+
+.ancients-img {
+    width: 250px;
+}
+
+.choose-ancients {
+    display: flex;
+    /* flex-direction: column; */
+    gap: 10px;
+    max-width: 515px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.active {
+    border: solid 2px red;
+}

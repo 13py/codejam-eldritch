@@ -17,12 +17,29 @@ let stageOneAllColorCard;
 let stageTwoAllColorCard;
 let stageThirdAllColorCard;
 
+function showCarsdAncients() {
+    ancientsData.forEach((card, ind) => {
+        let img = document.createElement("img");
+        img.className = "ancients-img";
+        if (ind === 0) {
+            img.classList.add("active");
+        }
+        chooseAncients.appendChild(img);
+        img.src = card.cardFace;
+    });
+}
+// let ancientsImg = document.querySelectorAll(".ancients-img");
+// ancientsImg.addEventListener("click", (e) => {
+//     e.target.classList.add("active");
+// });
+
 function showAncients() {
     console.log(ancientsData[0]);
-    let img = document.createElement("img");
-    chooseAncients.appendChild(img);
-    img.src = ancientsData[0].cardFace;
-    img.addEventListener("click", () => {});
+    // let img = document.createElement("img");
+    // chooseAncients.appendChild(img);
+    // img.src = ancientsData[0].cardFace;
+    // img.addEventListener("click", () => {});
+    showCarsdAncients();
     console.log(stage1);
 
     const curentAncient = ancientsData[0];
@@ -43,14 +60,14 @@ function showAncients() {
     console.log(greenCardCount, brownCardCount, blueCardCount);
     // отображаем кол - во карт по цветам
     stage1[0].textContent = ancientsData[0]["firstStage"].greenCards;
-    stage1[1].textContent = ancientsData[0]["firstStage"].blueCards;
-    stage1[2].textContent = ancientsData[0]["firstStage"].brownCards;
+    stage1[1].textContent = ancientsData[0]["firstStage"].brownCards;
+    stage1[2].textContent = ancientsData[0]["firstStage"].blueCards;
     stage2[0].textContent = ancientsData[0]["secondStage"].greenCards;
-    stage2[1].textContent = ancientsData[0]["secondStage"].blueCards;
-    stage2[2].textContent = ancientsData[0]["secondStage"].brownCards;
+    stage2[1].textContent = ancientsData[0]["secondStage"].brownCards;
+    stage2[2].textContent = ancientsData[0]["secondStage"].blueCards;
     stage3[0].textContent = ancientsData[0]["thirdStage"].greenCards;
-    stage3[1].textContent = ancientsData[0]["thirdStage"].blueCards;
-    stage3[2].textContent = ancientsData[0]["thirdStage"].brownCards;
+    stage3[1].textContent = ancientsData[0]["thirdStage"].brownCards;
+    stage3[2].textContent = ancientsData[0]["thirdStage"].blueCards;
 
     let tempBlue = randomShoose(blueCardCount, blueCards);
     let tempGreen = randomShoose(greenCardCount, greenCards);
@@ -169,9 +186,9 @@ function showCards() {
 function setCountColorCard(card, stage) {
     if (card["color"] == "green") {
         stage[0].textContent--;
-    } else if (card["color"] == "blue") {
-        stage[1].textContent--;
     } else if (card["color"] == "brown") {
+        stage[1].textContent--;
+    } else if (card["color"] == "blue") {
         stage[2].textContent--;
     }
 }

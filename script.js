@@ -130,14 +130,19 @@ function showCards() {
     // openCard.appendChild(img);
     // console.log(stageOneAllColorCard, "carrrrrrrrrr");
     if (stageOneAllColorCard.length != 0) {
-        alert(stageOneAllColorCard.length);
+        // alert(stageOneAllColorCard.length);
         let card = stageOneAllColorCard.pop();
+        console.log(card["color"], "cardddd");
+        setCountColorCard(card, stage1);
         curentCard.src =
             "./assets/MythicCards/" + `${card["color"]}` + "/" + `${card["id"]}.png`;
     } else {
         if (stageTwoAllColorCard.length != 0) {
-            alert(stageTwoAllColorCard.length);
+            // alert(stageTwoAllColorCard.length);
             let card = stageTwoAllColorCard.pop();
+            console.log(card, "CARD");
+            setCountColorCard(card, stage2);
+            // setCountColorCard(card);
             curentCard.src =
                 "./assets/MythicCards/" +
                 `${card["color"]}` +
@@ -147,6 +152,7 @@ function showCards() {
             if (stageThirdAllColorCard.length != 0) {
                 alert(stageThirdAllColorCard.length);
                 let card = stageThirdAllColorCard.pop();
+                setCountColorCard(card, stage3);
                 curentCard.src =
                     "./assets/MythicCards/" +
                     `${card["color"]}` +
@@ -160,6 +166,17 @@ function showCards() {
 
     // alert();
 }
+
+function setCountColorCard(card, stage) {
+    if (card["color"] == "green") {
+        stage[0].textContent--;
+    } else if (card["color"] == "blue") {
+        stage[1].textContent--;
+    } else if (card["color"] == "brown") {
+        stage[2].textContent--;
+    }
+}
+// setCountColorCard();
 backgroundCard.addEventListener("click", showCards);
 showAncients();
 

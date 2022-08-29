@@ -20,26 +20,26 @@ const ancientsData = [{
             brownCards: 4,
         },
     },
-    {
-        id: "cthulhu",
-        name: "cthulhu",
-        cardFace: Ancients.cthulhu,
-        firstStage: {
-            greenCards: 0,
-            blueCards: 2,
-            brownCards: 2,
-        },
-        secondStage: {
-            greenCards: 1,
-            blueCards: 0,
-            brownCards: 3,
-        },
-        thirdStage: {
-            greenCards: 3,
-            blueCards: 0,
-            brownCards: 4,
-        },
-    },
+    // {
+    //     id: "cthulhu",
+    //     name: "cthulhu",
+    //     cardFace: Ancients.cthulhu,
+    //     firstStage: {
+    //         greenCards: 0,
+    //         blueCards: 2,
+    //         brownCards: 2,
+    //     },
+    //     secondStage: {
+    //         greenCards: 1,
+    //         blueCards: 0,
+    //         brownCards: 3,
+    //     },
+    //     thirdStage: {
+    //         greenCards: 3,
+    //         blueCards: 0,
+    //         brownCards: 4,
+    //     },
+    // },
     {
         id: "iogSothoth",
         name: "iogSothoth",

@@ -26,69 +26,83 @@ function showCarsdAncients() {
         }
         chooseAncients.appendChild(img);
         img.src = card.cardFace;
+        img.addEventListener("click", () => {
+            console.log(card, "SHOW CARD CHECK", ind, card["firstStage"]);
+            showAncients(card);
+        });
     });
 }
+showCarsdAncients();
 // let ancientsImg = document.querySelectorAll(".ancients-img");
 // ancientsImg.addEventListener("click", (e) => {
 //     e.target.classList.add("active");
 // });
 
-function showAncients() {
-    console.log(ancientsData[0]);
+function showAncients(card) {
+    // console.log(ancientsData[0]);
     // let img = document.createElement("img");
     // chooseAncients.appendChild(img);
     // img.src = ancientsData[0].cardFace;
     // img.addEventListener("click", () => {});
-    showCarsdAncients();
+    // showCarsdAncients();
     console.log(stage1);
 
-    const curentAncient = ancientsData[0];
+    // const curentAncient = ancientsData[ind];
 
     // кол-во карт по цветам на каждом уровне
     let greenCardCount =
-        curentAncient["firstStage"].greenCards +
-        curentAncient["secondStage"].greenCards +
-        curentAncient["thirdStage"].greenCards;
+        card["firstStage"].greenCards +
+        card["secondStage"].greenCards +
+        card["thirdStage"].greenCards;
     let brownCardCount =
-        curentAncient["firstStage"].brownCards +
-        curentAncient["secondStage"].brownCards +
-        curentAncient["thirdStage"].brownCards;
+        card["firstStage"].brownCards +
+        card["secondStage"].brownCards +
+        card["thirdStage"].brownCards;
     let blueCardCount =
-        curentAncient["firstStage"].blueCards +
-        curentAncient["secondStage"].blueCards +
-        curentAncient["thirdStage"].blueCards;
+        card["firstStage"].blueCards +
+        card["secondStage"].blueCards +
+        card["thirdStage"].blueCards;
     console.log(greenCardCount, brownCardCount, blueCardCount);
     // отображаем кол - во карт по цветам
-    stage1[0].textContent = ancientsData[0]["firstStage"].greenCards;
-    stage1[1].textContent = ancientsData[0]["firstStage"].brownCards;
-    stage1[2].textContent = ancientsData[0]["firstStage"].blueCards;
-    stage2[0].textContent = ancientsData[0]["secondStage"].greenCards;
-    stage2[1].textContent = ancientsData[0]["secondStage"].brownCards;
-    stage2[2].textContent = ancientsData[0]["secondStage"].blueCards;
-    stage3[0].textContent = ancientsData[0]["thirdStage"].greenCards;
-    stage3[1].textContent = ancientsData[0]["thirdStage"].brownCards;
-    stage3[2].textContent = ancientsData[0]["thirdStage"].blueCards;
+    stage1[0].textContent = card["firstStage"].greenCards;
+    stage1[1].textContent = card["firstStage"].brownCards;
+    stage1[2].textContent = card["firstStage"].blueCards;
+    stage2[0].textContent = card["secondStage"].greenCards;
+    stage2[1].textContent = card["secondStage"].brownCards;
+    stage2[2].textContent = card["secondStage"].blueCards;
+    stage3[0].textContent = card["thirdStage"].greenCards;
+    stage3[1].textContent = card["thirdStage"].brownCards;
+    stage3[2].textContent = card["thirdStage"].blueCards;
 
     let tempBlue = randomShoose(blueCardCount, blueCards);
     let tempGreen = randomShoose(greenCardCount, greenCards);
     let tempBrown = randomShoose(brownCardCount, brownCards);
-    console.log(tempBlue, tempGreen, tempBrown);
-
+    console.log(
+        tempBlue,
+        tempGreen,
+        tempBrown,
+        "перед вызовом shuffle",
+        card["firstStage"].blueCards,
+        tempBlue,
+        tempGreen,
+        tempBrown
+    );
+    // alert("перед вызовом shuffle", card["firstStage"].blueCards, tempBlue);
     // рандомные карты всех цветов для одного этапа
     stageOneAllColorCard = shuffle([
-        ...randomShoose(ancientsData[0]["firstStage"].blueCards, tempBlue),
-        ...randomShoose(ancientsData[0]["firstStage"].greenCards, tempGreen),
-        ...randomShoose(ancientsData[0]["firstStage"].brownCards, tempBrown),
+        ...randomShoose(card["firstStage"].blueCards, tempBlue),
+        ...randomShoose(card["firstStage"].greenCards, tempGreen),
+        ...randomShoose(card["firstStage"].brownCards, tempBrown),
     ]);
     stageTwoAllColorCard = shuffle([
-        ...randomShoose(ancientsData[0]["secondStage"].blueCards, tempBlue),
-        ...randomShoose(ancientsData[0]["secondStage"].greenCards, tempGreen),
-        ...randomShoose(ancientsData[0]["secondStage"].brownCards, tempBrown),
+        ...randomShoose(card["secondStage"].blueCards, tempBlue),
+        ...randomShoose(card["secondStage"].greenCards, tempGreen),
+        ...randomShoose(card["secondStage"].brownCards, tempBrown),
     ]);
     stageThirdAllColorCard = shuffle([
-        ...randomShoose(ancientsData[0]["thirdStage"].blueCards, tempBlue),
-        ...randomShoose(ancientsData[0]["thirdStage"].greenCards, tempGreen),
-        ...randomShoose(ancientsData[0]["thirdStage"].brownCards, tempBrown),
+        ...randomShoose(card["thirdStage"].blueCards, tempBlue),
+        ...randomShoose(card["thirdStage"].greenCards, tempGreen),
+        ...randomShoose(card["thirdStage"].brownCards, tempBrown),
     ]);
     console.log(stageTwoAllColorCard, "BEFORE");
     // console.log(shuffle(stageTwoAllColorCard), "BEFORE!!!");
@@ -96,6 +110,7 @@ function showAncients() {
 
 function shuffle(list) {
     // console.log(list, "do");
+    // alert("shuffle");
     for (let i = list.length - 1; i >= 0; i--) {
         let tempNum = list[i];
         // console.log(tempNum, "!!!!!", list.length - 1, i);
@@ -128,7 +143,7 @@ function randomShoose(num, color) {
         // console.log(tempIndexList, "list");
     }
 
-    console.log(tempIndexList, "list", color.length);
+    // console.log(tempIndexList, "list", color.length);
     return randomCards;
 }
 
@@ -194,6 +209,6 @@ function setCountColorCard(card, stage) {
 }
 // setCountColorCard();
 backgroundCard.addEventListener("click", showCards);
-showAncients();
+// showAncients();
 
 // Math.floor(Math.random() * (20 - 1 + 1) + 1);

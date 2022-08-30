@@ -54,6 +54,12 @@
     flex-wrap: wrap;
 }
 
+.level-btn {
+    opacity: 50%;
+}
+
 .active {
     border: solid 2px red;
+    opacity: 100%;
+    cursor: pointer;
 }

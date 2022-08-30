@@ -21,14 +21,20 @@ function showCarsdAncients() {
     ancientsData.forEach((card, ind) => {
         let img = document.createElement("img");
         img.className = "ancients-img";
-        if (ind === 0) {
-            img.classList.add("active");
-        }
+        // if (ind === 0) {
+        //     img.classList.add("active");
+        // }
+
         chooseAncients.appendChild(img);
         img.src = card.cardFace;
         img.addEventListener("click", () => {
-            console.log(card, "SHOW CARD CHECK", ind, card["firstStage"]);
+            console.log(card, "SHOW CARD CHECK", ind, "INDEX", card["firstStage"]);
             showAncients(card);
+            let imgAll = document.querySelectorAll(".ancients-img");
+            imgAll.forEach((img) => {
+                img.classList.remove("active");
+            });
+            img.classList.add("active");
         });
     });
 }

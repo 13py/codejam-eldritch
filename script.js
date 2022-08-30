@@ -29,6 +29,7 @@ function showCarsdAncients() {
         img.src = card.cardFace;
         img.addEventListener("click", () => {
             console.log(card, "SHOW CARD CHECK", ind, "INDEX", card["firstStage"]);
+            // openCard.classList.remove("invisible");
             showAncients(card);
             let imgAll = document.querySelectorAll(".ancients-img");
             imgAll.forEach((img) => {
@@ -197,6 +198,9 @@ function showCards() {
                     `${card["id"]}.png`;
             } else {
                 alert("Карты в колоде закончились!");
+                // openCard.classList.add("invisible");
+                let cardOpenSrc = document.querySelector(".card");
+                cardOpenSrc.src = "";
             }
         }
     }

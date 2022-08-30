@@ -63,3 +63,11 @@
     opacity: 100%;
     cursor: pointer;
 }
+
+.invisible {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
